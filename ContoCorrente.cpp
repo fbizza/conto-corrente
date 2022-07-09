@@ -1,6 +1,5 @@
 #include "ContoCorrente.h"
 
-
 void ContoCorrente::preleva(int x) {
     Saldo -= x;
 }
