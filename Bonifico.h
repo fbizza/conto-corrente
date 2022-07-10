@@ -7,10 +7,9 @@
 
 class Bonifico {
 public:
-    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : ContoCorrenteDestinatario(cc), Importo(importo), IbanDestinatario(iban) {};
+    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : contoCorrente(cc), Importo(importo), IbanDestinatario(iban) {};
 
     void eseguiBonifico();
-
 
     int getImporto() const {
         return Importo;
@@ -23,7 +22,7 @@ public:
 
 private:
     int Importo;
-    ContoCorrente &ContoCorrenteDestinatario;
+    ContoCorrente &contoCorrente;
     std::string IbanDestinatario;
 };
 

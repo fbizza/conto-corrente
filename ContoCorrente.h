@@ -9,7 +9,9 @@ public:
 
     void preleva(int x);
 
-    void versa(int x);
+    void versamentoBancomat(int x);
+
+    void diminuisciSaldo(int x);
 
     int getSaldo() const {
         return Saldo;
