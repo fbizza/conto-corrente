@@ -13,6 +13,8 @@ public:
 
     void diminuisciSaldo(int x);
 
+    void aumentaSaldo(int x);
+
     int getSaldo() const {
         return Saldo;
     }

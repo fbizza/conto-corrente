@@ -1,16 +1,20 @@
-#include "Bonifico.h"
-#include <fstream>
+#include "bonifico.h"
 #include <ctime>
+#include <QIODevice>
+#include <QFile>
+#include <QTextStream>
 
 void Bonifico::eseguiBonifico() {
-    contoCorrente.diminuisciSaldo(Importo);
+    contoCorrente.diminuisciSaldo(Importo);;
     time_t now = time(0);
     std::string dt = ctime(&now);
-    std::fstream file;
-    file.open("ListaMovimenti.txt", std::ios::app);
-    if (file.is_open()) {
-        file << "\n" << dt << "È stato inviato un bonifico da " << Importo << "€ a " << IbanDestinatario << std::endl;
-        file << "Nuovo saldo: " << contoCorrente.getSaldo() << "€" << std::endl;
+    QString DataEOra = QString::fromStdString(dt);
+    QString IBAN = QString::fromStdString(IbanDestinatario);
+    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+        QTextStream stream(&file);
+        stream << "\n" << DataEOra << "È stato inviato un bonifico da " << Importo << "€ a " << IBAN;
+        stream << "\nNuovo saldo: " << contoCorrente.getSaldo() << "€\n";
         file.close();
     }
 }
