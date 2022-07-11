@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    cc = ContoCorrente(38, "Iban di prova", "Intestatario di prova");
+    cc = ContoCorrente(38, "IT3475769587480012", "Francesco Bizzarri");
     cc.versamentoBancomat(10000);
     cc.preleva(300);
     Investimento i(cc, 2);
