@@ -19,6 +19,12 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        contocorrente.cpp
+        contocorrente.h
+        bonifico.h
+        bonifico.cpp
+        investimento.h
+        investimento.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

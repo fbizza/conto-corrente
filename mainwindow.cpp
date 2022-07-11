@@ -6,7 +6,21 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->label_6->setText("test");
+    cc = ContoCorrente(38, "Iban di prova", "Intestatario di prova");
+    cc.versamentoBancomat(10000);
+    cc.preleva(300);
+    Investimento i(cc, 2);
+    i.compraAzioni();
+    Investimento ii(cc, 589);
+    ii.vendiAzioni();
+    Bonifico b(cc, 257);
+    b.eseguiBonifico();
+    QString SaldoAttuale = QString::fromStdString(std::to_string(cc.getSaldo()));
+    ui->label_6->setText(SaldoAttuale);
+    QString NomeIntestatario = QString::fromStdString(cc.getIntestatario());
+    ui->label_2->setText(NomeIntestatario);
+    QString IBAN = QString::fromStdString(cc.getIBAN());
+    ui->label_4->setText(IBAN);
 }
 
 MainWindow::~MainWindow()
@@ -16,6 +30,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+    QString SaldoAttuale = QString::fromStdString(std::to_string(cc.getSaldo()));
+    ui->label_6->setText(SaldoAttuale);
     ui->stackedWidget->setCurrentIndex(0);
 }
 

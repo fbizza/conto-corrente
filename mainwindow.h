@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <iostream>
+#include "contocorrente.h"
+#include "bonifico.h"
+#include "investimento.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +20,7 @@ public:
     ~MainWindow();
 
 private slots:
+
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
@@ -28,5 +33,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    ContoCorrente cc;
 };
 #endif // MAINWINDOW_H
