@@ -4,7 +4,7 @@ project(conto-corrente)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 add_subdirectory(test)
-
+find_package(Qt6Widgets REQUIRED)
 set(SOURCE_FILES ContoCorrente.cpp ContoCorrente.h Bonifico.h Bonifico.cpp Investimento.cpp Investimento.h)
 add_executable(conto-corrente main.cpp)
 add_library(core ${SOURCE_FILES})
