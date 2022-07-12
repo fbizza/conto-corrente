@@ -13,14 +13,22 @@ MainWindow::MainWindow(QWidget *parent)
     i.compraAzioni();
     Investimento ii(cc, 589);
     ii.vendiAzioni();
-    Bonifico b(cc, 257);
-    b.eseguiBonifico();
+    Bonifico b(cc, 250);
+    try {
+        b.eseguiBonifico();
+    }  catch (const char* messaggio) {
+        std::cout << messaggio << std::endl;
+    }
+
     QString SaldoAttuale = QString::fromStdString(std::to_string(cc.getSaldo()));
     ui->label_6->setText(SaldoAttuale);
     QString NomeIntestatario = QString::fromStdString(cc.getIntestatario());
     ui->label_2->setText(NomeIntestatario);
     QString IBAN = QString::fromStdString(cc.getIBAN());
     ui->label_4->setText(IBAN);
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->label_11->setText("");
+    ui->label_13->setText("");
 }
 
 MainWindow::~MainWindow()
@@ -55,5 +63,75 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     ui->stackedWidget->setCurrentIndex(4);
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    if (ui->radioButton->isChecked()) {
+        cc.preleva(20);
+        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 20€");
+    }
+    else if (ui->radioButton_2->isChecked()){
+        cc.preleva(50);
+        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 50€");
+    }
+    else if (ui->radioButton_3->isChecked()){
+        cc.preleva(75);
+        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 75€");
+    }
+    else if (ui->radioButton_4->isChecked()){
+        cc.preleva(100);
+        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 100€");
+    }
+    else if (ui->radioButton_5->isChecked()){
+        cc.preleva(250);
+        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 250€");
+    }
+    else if (ui->radioButton_6->isChecked()){
+        cc.preleva(500);
+        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 500€");
+    }
+    else if (ui->radioButton_7->isChecked()){
+        cc.preleva(ui->spinBox->value());
+        std::string s = "SONO STATI CORRETTAMENTE PRELEVATI " + std::to_string(ui->spinBox->value()) + "€";
+        ui->label_11->setText(QString::fromStdString(s));
+    }
+    else ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+}
+
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    if (ui->radioButton_8->isChecked()) {
+        cc.versamentoBancomat(20);
+        ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 20€");
+    }
+    else if (ui->radioButton_9->isChecked()){
+        cc.versamentoBancomat(50);
+        ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 50€");
+    }
+    else if (ui->radioButton_10->isChecked()){
+        cc.versamentoBancomat(75);
+        ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 75€");
+    }
+    else if (ui->radioButton_11->isChecked()){
+        cc.versamentoBancomat(100);
+        ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 100€");
+    }
+    else if (ui->radioButton_12->isChecked()){
+        cc.versamentoBancomat(250);
+        ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 250€");
+    }
+    else if (ui->radioButton_13->isChecked()){
+        cc.versamentoBancomat(500);
+        ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 500€");
+    }
+    else if (ui->radioButton_14->isChecked()){
+        cc.versamentoBancomat(ui->spinBox_2->value());
+        std::string s = "SONO STATI CORRETTAMENTE VERSATI " + std::to_string(ui->spinBox_2->value()) + "€";
+        ui->label_13->setText(QString::fromStdString(s));
+    }
+    else ui->label_13->setText("NESSUNA OPERAZIONE EFFETTUATA");
 }
 
