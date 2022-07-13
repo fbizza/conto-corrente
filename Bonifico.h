@@ -7,7 +7,7 @@
 
 class Bonifico {
 public:
-    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : contoCorrente(cc), Importo(importo), IbanDestinatario(iban) {};
+    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774", bool istantaneo = false) : contoCorrente(cc), Importo(importo), IbanDestinatario(iban), isIstantaneo(istantaneo) {};
 
     void eseguiBonifico();
 
@@ -20,6 +20,7 @@ public:
     }
 
 
+    bool isIstantaneo;
 private:
     int Importo;
     ContoCorrente &contoCorrente;
