@@ -6,19 +6,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    cc = ContoCorrente(38, "IT3475769587480012", "Francesco Bizzarri");
-    cc.versamentoBancomat(10000);
-    cc.preleva(300);
-    Investimento i(cc, 2);
-    i.compraAzioni();
-    Investimento ii(cc, 589);
-    ii.vendiAzioni();
-    Bonifico b(cc, 250);
-    try {
-        b.eseguiBonifico();
-    }  catch (const char* messaggio) {
-        std::cout << messaggio << std::endl;
-    }
+    cc = ContoCorrente(0, "IT3475769587480012", "Francesco Bizzarri");
+//    cc.versamentoBancomat(10000);
+//    cc.preleva(300);
+//    Investimento i(cc, 2);
+//    i.compraAzioni();
+//    Investimento ii(cc, 589);
+//    ii.vendiAzioni();
+//    Bonifico b(cc, 250);
+//    try {
+//        b.eseguiBonifico();
+//    }  catch (const char* messaggio) {
+//        std::cout << messaggio << std::endl;
+//    }
 
     QString SaldoAttuale = QString::fromStdString(std::to_string(cc.getSaldo()));
     ui->label_6->setText(SaldoAttuale);
@@ -69,33 +69,68 @@ void MainWindow::on_pushButton_5_clicked()
 void MainWindow::on_pushButton_6_clicked()
 {
     if (ui->radioButton->isChecked()) {
-        cc.preleva(20);
-        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 20€");
+        try {
+            cc.preleva(20);
+            ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 20€");
+            }  catch (const char* messaggio) {
+                std::cout << messaggio << std::endl;
+                ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+        }
     }
     else if (ui->radioButton_2->isChecked()){
-        cc.preleva(50);
-        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 50€");
+        try {
+            cc.preleva(50);
+            ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 50€");
+            }  catch (const char* messaggio) {
+                std::cout << messaggio << std::endl;
+                ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+        }
     }
     else if (ui->radioButton_3->isChecked()){
-        cc.preleva(75);
-        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 75€");
+        try {
+            cc.preleva(75);
+            ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 75€");
+            }  catch (const char* messaggio) {
+                std::cout << messaggio << std::endl;
+                ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+        }
     }
     else if (ui->radioButton_4->isChecked()){
-        cc.preleva(100);
-        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 100€");
+        try {
+            cc.preleva(100);
+            ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 100€");
+            }  catch (const char* messaggio) {
+                std::cout << messaggio << std::endl;
+                ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+        }
     }
     else if (ui->radioButton_5->isChecked()){
-        cc.preleva(250);
-        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 250€");
+        try {
+            cc.preleva(250);
+            ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 250€");
+            }  catch (const char* messaggio) {
+                std::cout << messaggio << std::endl;
+                ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+        }
     }
     else if (ui->radioButton_6->isChecked()){
-        cc.preleva(500);
-        ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 500€");
+        try {
+            cc.preleva(500);
+            ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 500€");
+            }  catch (const char* messaggio) {
+                std::cout << messaggio << std::endl;
+                ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+        }
     }
     else if (ui->radioButton_7->isChecked()){
-        cc.preleva(ui->spinBox->value());
-        std::string s = "SONO STATI CORRETTAMENTE PRELEVATI " + std::to_string(ui->spinBox->value()) + "€";
-        ui->label_11->setText(QString::fromStdString(s));
+        try {
+            cc.preleva(ui->spinBox->value());
+            std::string s = "SONO STATI CORRETTAMENTE PRELEVATI " + std::to_string(ui->spinBox->value()) + "€";
+            ui->label_11->setText(QString::fromStdString(s));
+        } catch (const char* messaggio) {
+            std::cout << messaggio << std::endl;
+            ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
+        }
     }
     else ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
 }
@@ -133,5 +168,17 @@ void MainWindow::on_pushButton_7_clicked()
         ui->label_13->setText(QString::fromStdString(s));
     }
     else ui->label_13->setText("NESSUNA OPERAZIONE EFFETTUATA");
+}
+
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    std::string iban = ui->lineEdit->text().toStdString();
+    try {
+        Bonifico b(cc, ui->spinBox_3->value(), iban);
+        b.eseguiBonifico();
+    }  catch (const char* messaggio) {
+        std::cout << messaggio << std::endl;
+    }
 }
 
