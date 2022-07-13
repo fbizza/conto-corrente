@@ -1,72 +1,33 @@
 
-Tue Jul 12 00:28:56 2022
-Sono stati versati 10000€
-Nuovo saldo: 10038€
 
-Tue Jul 12 00:28:56 2022
-Sono stati prelevati 300€
-Nuovo saldo: 9738€
+Wed Jul 13 13:18:49 2022
+Sono stati versati 500€
+Nuovo saldo: 500€
 
-Tue Jul 12 00:28:56 2022
-Sono stati investiti 2€ in azioni MSFT
-Nuovo saldo: 9736€
+Wed Jul 13 13:18:52 2022
+Sono stati prelevati 75€
+Nuovo saldo: 425€
 
-Tue Jul 12 00:28:56 2022
-Sono state vendute azioni MSFT per un valore di 589€
-Nuovo saldo: 10325€
+Wed Jul 13 13:18:54 2022
+È stato inviato un bonifico da 10€ a IT23D98860948910084
+Nuovo saldo: 415€
 
-Tue Jul 12 00:31:59 2022
-Sono stati versati 10000€
-Nuovo saldo: 10038€
+Wed Jul 13 13:18:58 2022
+Sono stati investiti 120€ in azioni GOOGL
+Nuovo saldo: 295€
 
-Tue Jul 12 00:31:59 2022
-Sono stati prelevati 300€
-Nuovo saldo: 9738€
+Wed Jul 13 13:19:01 2022
+Sono state vendute azioni MSFT per un valore di 400€
+Nuovo saldo: 695€
 
-Tue Jul 12 00:31:59 2022
-Sono stati investiti 2€ in azioni MSFT
-Nuovo saldo: 9736€
+Wed Jul 13 13:19:48 2022
+Sono stati versati 100€
+Nuovo saldo: 100€
 
-Tue Jul 12 00:31:59 2022
-Sono state vendute azioni MSFT per un valore di 589€
-Nuovo saldo: 10325€
+Wed Jul 13 13:19:50 2022
+Sono stati investiti 10€ in azioni ADBE
+Nuovo saldo: 90€
 
-Tue Jul 12 00:32:59 2022
-Sono stati versati 10000€
-Nuovo saldo: 10038€
-
-Tue Jul 12 00:32:59 2022
-Sono stati prelevati 300€
-Nuovo saldo: 9738€
-
-Tue Jul 12 00:32:59 2022
-Sono stati investiti 2€ in azioni MSFT
-Nuovo saldo: 9736€
-
-Tue Jul 12 00:32:59 2022
-Sono state vendute azioni MSFT per un valore di 589€
-Nuovo saldo: 10325€
-
-Tue Jul 12 00:32:59 2022
-È stato inviato un bonifico da 257€ a IT34768497485769201774
-Nuovo saldo: 10068€
-
-Tue Jul 12 00:33:32 2022
-Sono stati versati 10000€
-Nuovo saldo: 10038€
-
-Tue Jul 12 00:33:32 2022
-Sono stati prelevati 300€
-Nuovo saldo: 9738€
-
-Tue Jul 12 00:33:32 2022
-Sono stati investiti 2€ in azioni MSFT
-Nuovo saldo: 9736€
-
-Tue Jul 12 00:33:32 2022
-Sono state vendute azioni MSFT per un valore di 589€
-Nuovo saldo: 10325€
-
-Tue Jul 12 00:33:32 2022
-È stato inviato un bonifico da 257€ a IT34768497485769201774
-Nuovo saldo: 10068€
+Wed Jul 13 13:19:58 2022
+Sono state vendute azioni FERRARI per un valore di 40€
+Nuovo saldo: 130€

@@ -66,7 +66,7 @@ void MainWindow::on_pushButton_5_clicked()
 }
 
 
-void MainWindow::on_pushButton_6_clicked()
+void MainWindow::on_pushButton_6_clicked()  //PRELEVA
 {
     if (ui->radioButton->isChecked()) {
         try {
@@ -136,7 +136,7 @@ void MainWindow::on_pushButton_6_clicked()
 }
 
 
-void MainWindow::on_pushButton_7_clicked()
+void MainWindow::on_pushButton_7_clicked()  //VERSA SOLDI
 {
     if (ui->radioButton_8->isChecked()) {
         cc.versamentoBancomat(20);
@@ -171,7 +171,7 @@ void MainWindow::on_pushButton_7_clicked()
 }
 
 
-void MainWindow::on_pushButton_9_clicked()
+void MainWindow::on_pushButton_9_clicked() //ESEGUI BONIFICO
 {
     std::string iban = ui->lineEdit->text().toStdString();
     try {
@@ -180,5 +180,26 @@ void MainWindow::on_pushButton_9_clicked()
     }  catch (const char* messaggio) {
         std::cout << messaggio << std::endl;
     }
+}
+
+
+
+void MainWindow::on_pushButton_10_clicked()  //COMPRA AZIONI
+{
+    std::string Codice = ui->lineEdit_2->text().toStdString();
+    try {
+        Investimento i(cc, ui->spinBox_4->value(), Codice);
+        i.compraAzioni();
+    }  catch (const char* messaggio) {
+        std::cout << messaggio << std::endl;
+    }
+}
+
+
+void MainWindow::on_pushButton_11_clicked() //VENDI AZIONI
+{
+    std::string Codice = ui->lineEdit_4->text().toStdString();
+    Investimento i(cc, ui->spinBox_6->value(), Codice);
+    i.vendiAzioni();
 }
 
