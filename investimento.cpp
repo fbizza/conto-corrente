@@ -4,6 +4,17 @@
 #include <QTextStream>
 #include <ctime>
 
+void Investimento::esegui() {
+    if (this->Importo >= 0)
+        compraAzioni();
+    else
+        vendiAzioni();
+}
+
+void Investimento::annulla() {
+
+}
+
 void Investimento::compraAzioni() {
     contoCorrente.diminuisciSaldo(Importo);
     time_t now = time(0);

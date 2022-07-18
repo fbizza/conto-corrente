@@ -70,7 +70,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
 {
     if (ui->radioButton->isChecked()) {
         try {
-            cc.preleva(20);
+            Prelievo p(cc, 20);
+            p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 20€");
             }  catch (const char* messaggio) {
                 std::cout << messaggio << std::endl;
@@ -79,7 +80,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
     }
     else if (ui->radioButton_2->isChecked()){
         try {
-            cc.preleva(50);
+            Prelievo p(cc, 50);
+            p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 50€");
             }  catch (const char* messaggio) {
                 std::cout << messaggio << std::endl;
@@ -88,7 +90,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
     }
     else if (ui->radioButton_3->isChecked()){
         try {
-            cc.preleva(75);
+            Prelievo p(cc, 75);
+            p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 75€");
             }  catch (const char* messaggio) {
                 std::cout << messaggio << std::endl;
@@ -97,7 +100,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
     }
     else if (ui->radioButton_4->isChecked()){
         try {
-            cc.preleva(100);
+            Prelievo p(cc, 100);
+            p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 100€");
             }  catch (const char* messaggio) {
                 std::cout << messaggio << std::endl;
@@ -106,7 +110,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
     }
     else if (ui->radioButton_5->isChecked()){
         try {
-            cc.preleva(250);
+            Prelievo p(cc, 250);
+            p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 250€");
             }  catch (const char* messaggio) {
                 std::cout << messaggio << std::endl;
@@ -115,7 +120,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
     }
     else if (ui->radioButton_6->isChecked()){
         try {
-            cc.preleva(500);
+            Prelievo p(cc, 500);
+            p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 500€");
             }  catch (const char* messaggio) {
                 std::cout << messaggio << std::endl;
@@ -124,7 +130,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
     }
     else if (ui->radioButton_7->isChecked()){
         try {
-            cc.preleva(ui->spinBox->value());
+            Prelievo p(cc, ui->spinBox->value());
+            p.esegui();
             std::string s = "SONO STATI CORRETTAMENTE PRELEVATI " + std::to_string(ui->spinBox->value()) + "€";
             ui->label_11->setText(QString::fromStdString(s));
         } catch (const char* messaggio) {
@@ -136,34 +143,41 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
 }
 
 
-void MainWindow::on_pushButton_7_clicked()  //VERSA SOLDI
+void MainWindow::on_pushButton_7_clicked()  //VERSA
 {
     if (ui->radioButton_8->isChecked()) {
-        cc.versamentoBancomat(20);
+        Versamento v(cc, 20);
+        v.esegui();
         ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 20€");
     }
     else if (ui->radioButton_9->isChecked()){
-        cc.versamentoBancomat(50);
+        Versamento v(cc, 50);
+        v.esegui();
         ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 50€");
     }
     else if (ui->radioButton_10->isChecked()){
-        cc.versamentoBancomat(75);
+        Versamento v(cc, 75);
+        v.esegui();
         ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 75€");
     }
     else if (ui->radioButton_11->isChecked()){
-        cc.versamentoBancomat(100);
+        Versamento v(cc, 100);
+        v.esegui();
         ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 100€");
     }
     else if (ui->radioButton_12->isChecked()){
-        cc.versamentoBancomat(250);
+        Versamento v(cc, 250);
+        v.esegui();
         ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 250€");
     }
     else if (ui->radioButton_13->isChecked()){
-        cc.versamentoBancomat(500);
+        Versamento v(cc, 500);
+        v.esegui();
         ui->label_13->setText("SONO STATI CORRETTAMENTE VERSATI 500€");
     }
     else if (ui->radioButton_14->isChecked()){
-        cc.versamentoBancomat(ui->spinBox_2->value());
+        Versamento v(cc, ui->spinBox_2->value());
+        v.esegui();
         std::string s = "SONO STATI CORRETTAMENTE VERSATI " + std::to_string(ui->spinBox_2->value()) + "€";
         ui->label_13->setText(QString::fromStdString(s));
     }
@@ -176,7 +190,7 @@ void MainWindow::on_pushButton_9_clicked() //ESEGUI BONIFICO
     std::string iban = ui->lineEdit->text().toStdString();
     try {
         Bonifico b(cc, ui->spinBox_3->value(), iban);
-        b.eseguiBonifico();
+        b.esegui();
     }  catch (const char* messaggio) {
         std::cout << messaggio << std::endl;
     }

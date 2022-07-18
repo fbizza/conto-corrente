@@ -8,10 +8,6 @@ public:
     ContoCorrente(int saldo = 0, std::string iban = "IT3476849748575922774", std::string nome = "Francesco Bizzarri")
             : Saldo(saldo), IBAN(iban), Intestatario(nome) {};
 
-    void preleva(int x);
-
-    void versamentoBancomat(int x);
-
     void diminuisciSaldo(int x);
 
     void aumentaSaldo(int x);

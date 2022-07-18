@@ -2,11 +2,16 @@
 #define INVESTIMENTO_H
 #include <string>
 #include "contocorrente.h"
+#include "transazione.h"
 
-class Investimento {
+class Investimento : public Transazione {
 public:
 
     Investimento(ContoCorrente &cc, int importo = 0, std::string azione = "MSFT") : contoCorrente(cc), Importo(importo), CodiceAzione(azione) {};
+
+    void esegui() override;
+
+    void annulla() override;
 
     void compraAzioni();
 

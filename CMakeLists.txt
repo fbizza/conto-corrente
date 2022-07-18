@@ -25,6 +25,12 @@ set(PROJECT_SOURCES
         bonifico.cpp
         investimento.h
         investimento.cpp
+        transazione.h
+        transazione.cpp
+        prelievo.h
+        prelievo.cpp
+        versamento.h
+        versamento.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

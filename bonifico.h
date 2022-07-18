@@ -2,12 +2,15 @@
 #define BONIFICO_H
 #include <string>
 #include "contocorrente.h"
+#include "transazione.h"
 
-class Bonifico {
+class Bonifico : public Transazione {
 public:
     Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : contoCorrente(cc), Importo(importo), IbanDestinatario(iban) {};
 
-    void eseguiBonifico();
+    void esegui() override;
+
+    void annulla() override;
 
     int getImporto() const {
         return Importo;
