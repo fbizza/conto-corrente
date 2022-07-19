@@ -4,6 +4,8 @@
 #include "contocorrente.h"
 #include "transazione.h"
 
+class ContoCorrente;
+
 class Bonifico : public Transazione {
 public:
     Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : contoCorrente(cc), Importo(importo), IbanDestinatario(iban) {};

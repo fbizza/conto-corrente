@@ -4,6 +4,8 @@
 #include "contocorrente.h"
 #include "transazione.h"
 
+class ContoCorrente;
+
 class Investimento : public Transazione {
 public:
 

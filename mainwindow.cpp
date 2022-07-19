@@ -203,7 +203,7 @@ void MainWindow::on_pushButton_10_clicked()  //COMPRA AZIONI
     std::string Codice = ui->lineEdit_2->text().toStdString();
     try {
         Investimento i(cc, ui->spinBox_4->value(), Codice);
-        i.compraAzioni();
+        i.esegui();
     }  catch (const char* messaggio) {
         std::cout << messaggio << std::endl;
     }
@@ -213,7 +213,7 @@ void MainWindow::on_pushButton_10_clicked()  //COMPRA AZIONI
 void MainWindow::on_pushButton_11_clicked() //VENDI AZIONI
 {
     std::string Codice = ui->lineEdit_4->text().toStdString();
-    Investimento i(cc, ui->spinBox_6->value(), Codice);
-    i.vendiAzioni();
+    Investimento i(cc, -(ui->spinBox_6->value()), Codice);
+    i.esegui();
 }
 

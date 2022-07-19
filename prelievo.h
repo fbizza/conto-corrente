@@ -3,6 +3,8 @@
 #include "transazione.h"
 #include "contocorrente.h"
 
+class ContoCorrente;
+
 class Prelievo : public Transazione {
 public:
     Prelievo(ContoCorrente &cc, int importo = 0) : contoCorrente(cc), Importo(importo) {};
@@ -10,6 +12,7 @@ public:
     void esegui() override;
 
     void annulla() override;
+
 private:
     int Importo;
     ContoCorrente &contoCorrente;
