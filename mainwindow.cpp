@@ -229,24 +229,43 @@ void MainWindow::on_pushButton_11_clicked() //VENDI AZIONI
 
 void MainWindow::on_pushButton_33_clicked()
 {
-    cc.annullaUltimoPrelievo();
+    try {
+        cc.annullaUltimoPrelievo();
+    }  catch (const char* messaggio) {
+        std::cout << messaggio << std::endl;
+    }
+
 }
 
 
 void MainWindow::on_pushButton_34_clicked()
 {
-    cc.annullaUltimoVersamento();
+    try {
+        cc.annullaUltimoVersamento();
+    }  catch (const char* messaggio) {
+        std::cout << messaggio << std::endl;
+    }
+
 }
 
 
 void MainWindow::on_pushButton_35_clicked()
 {
-    cc.annullaUltimoBonifico();
+    try {
+        cc.annullaUltimoBonifico();
+    }  catch (const char* messaggio) {
+        std::cout << messaggio << std::endl;
+    }
+
 }
 
 
 void MainWindow::on_pushButton_32_clicked()
 {
-    cc.annullaUltimoInvestimento();
+    try {
+        cc.annullaUltimoInvestimento();
+    }  catch (const char* messaggio) {
+        std::cout << messaggio << std::endl;
+    }
 }
 

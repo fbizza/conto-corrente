@@ -2374,7 +2374,7 @@ color: rgb(35, 35, 35);
 </string>
                 </property>
                 <property name="text">
-                 <string>ANNULLA ULTIMO PRELIEVO</string>
+                 <string>ANNULLA  PRELIEVO</string>
                 </property>
                </widget>
               </item>
@@ -2422,7 +2422,7 @@ color: rgb(35, 35, 35);
 </string>
                 </property>
                 <property name="text">
-                 <string>ANNULLA ULTIMO VERSAMENTO</string>
+                 <string>ANNULLA  VERSAMENTO</string>
                 </property>
                </widget>
               </item>
@@ -2470,7 +2470,7 @@ color: rgb(35, 35, 35);
 </string>
                 </property>
                 <property name="text">
-                 <string>ANNULLA ULTIMO BONIFICO</string>
+                 <string>ANNULLA  BONIFICO</string>
                 </property>
                </widget>
               </item>
@@ -2518,7 +2518,7 @@ color: rgb(35, 35, 35);
 </string>
                 </property>
                 <property name="text">
-                 <string>ANNULLA ULTIMO INVESTIMENTO</string>
+                 <string>ANNULLA  INVESTIMENTO</string>
                 </property>
                </widget>
               </item>

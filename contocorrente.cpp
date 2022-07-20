@@ -23,9 +23,11 @@ void ContoCorrente::aggiungiVersamento(Versamento& t) {
 }
 
 void ContoCorrente::annullaUltimoVersamento() {
-    ListaVersamenti.back().annulla();
-    ListaVersamenti.pop_back();
-    std::cout << "LISTA VERSAMENTI: " << ListaVersamenti.size() << std::endl;
+    if (!ListaVersamenti.empty()) {
+        ListaVersamenti.back().annulla();
+        ListaVersamenti.pop_back();
+        std::cout << "LISTA VERSAMENTI: " << ListaVersamenti.size() << std::endl;
+    } else throw "Nessun versamento da annullare!";
 }
 
 void ContoCorrente::aggiungiPrelievo(Prelievo& p) {
@@ -34,9 +36,11 @@ void ContoCorrente::aggiungiPrelievo(Prelievo& p) {
 }
 
 void ContoCorrente::annullaUltimoPrelievo() {
-    ListaPrelievi.back().annulla();
-    ListaPrelievi.pop_back();
-    std::cout << "LISTA PRELIEVI: " << ListaPrelievi.size() << std::endl;
+    if (!ListaPrelievi.empty()) {
+        ListaPrelievi.back().annulla();
+        ListaPrelievi.pop_back();
+        std::cout << "LISTA PRELIEVI: " << ListaPrelievi.size() << std::endl;
+    } else throw "Nessun prelievo da annullare!";
 }
 
 void ContoCorrente::aggiungiInvestimento(Investimento& i) {
@@ -45,9 +49,12 @@ void ContoCorrente::aggiungiInvestimento(Investimento& i) {
 }
 
 void ContoCorrente::annullaUltimoInvestimento() {
-    ListaInvestimenti.back().annulla();
-    ListaInvestimenti.pop_back();
-    std::cout << "LISTA INVESTIMENTI: " << ListaInvestimenti.size() << std::endl;
+    if (!ListaInvestimenti.empty()) {
+        ListaInvestimenti.back().annulla();
+        ListaInvestimenti.pop_back();
+        std::cout << "LISTA INVESTIMENTI: " << ListaInvestimenti.size() << std::endl;
+    } else throw "Nessun investimento da annullare!";
+
 }
 
 void ContoCorrente::aggiungiBonifico(Bonifico& b) {
@@ -56,8 +63,11 @@ void ContoCorrente::aggiungiBonifico(Bonifico& b) {
 }
 
 void ContoCorrente::annullaUltimoBonifico() {
-    ListaBonifici.back().annulla();
-    ListaBonifici.pop_back();
-    std::cout << "LISTA BONIFICI: " << ListaBonifici.size() << std::endl;
+    if (!ListaBonifici.empty()) {
+        ListaBonifici.back().annulla();
+        ListaBonifici.pop_back();
+        std::cout << "LISTA BONIFICI: " << ListaBonifici.size() << std::endl;
+    } else throw "Nessun bonifico da annullare!";
+
 }
 
