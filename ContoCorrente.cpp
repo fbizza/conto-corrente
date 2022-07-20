@@ -1,42 +1,9 @@
 #include "contocorrente.h"
-#include <ctime>
-//#include <QIODevice>
-//#include <QFile>
-//#include <QTextStream>
+#include <iostream>
 
-void ContoCorrente::preleva(int x) {
-    if (Saldo - x > 0) {
-        Saldo -= x;
-    }
-    else throw "Saldo contabile non sufficiente!";
-    time_t now = time(0);
-    std::string dt = ctime(&now);
-//    QString DataEOra = QString::fromStdString(dt);
-//    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
-//    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
-//        QTextStream stream(&file);
-//        stream << "\n" << DataEOra << "Sono stati prelevati " << x << "€";
-//        stream << "\nNuovo saldo: " << Saldo << "€\n";
-//        file.close();
-//    }
-}
-
-void ContoCorrente::versamentoBancomat(int x) {
-    Saldo += x;
-    time_t now = time(0);
-    std::string dt = ctime(&now);
-//    QString DataEOra = QString::fromStdString(dt);
-//    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
-//    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
-//        QTextStream stream(&file);
-//        stream << "\n" << DataEOra << "Sono stati versati " << x << "€";
-//        stream << "\nNuovo saldo: " << Saldo << "€\n";
-//        file.close();
-//    }
-}
 
 void ContoCorrente::diminuisciSaldo(int x) {
-    if (Saldo - x > 0) {
+    if (Saldo - x >= 0) {
         Saldo -= x;
     }
     else throw "Saldo contabile non sufficiente!";
@@ -45,4 +12,52 @@ void ContoCorrente::diminuisciSaldo(int x) {
 void ContoCorrente::aumentaSaldo(int x) {
     Saldo += x;
 }
+
+void ContoCorrente::aggiungiVersamento(Versamento& t) {
+    ListaVersamenti.push_back(t);
+}
+
+void ContoCorrente::annullaUltimoVersamento() {
+    if (!ListaVersamenti.empty()) {
+        ListaVersamenti.back().annulla();
+        ListaVersamenti.pop_back();
+    } else throw "Nessun versamento da annullare!";
+}
+
+void ContoCorrente::aggiungiPrelievo(Prelievo& p) {
+    ListaPrelievi.push_back(p);
+}
+
+void ContoCorrente::annullaUltimoPrelievo() {
+    if (!ListaPrelievi.empty()) {
+        ListaPrelievi.back().annulla();
+        ListaPrelievi.pop_back();
+    } else throw "Nessun prelievo da annullare!";
+}
+
+void ContoCorrente::aggiungiInvestimento(Investimento& i) {
+    ListaInvestimenti.push_back(i);
+}
+
+void ContoCorrente::annullaUltimoInvestimento() {
+    if (!ListaInvestimenti.empty()) {
+        ListaInvestimenti.back().annulla();
+        ListaInvestimenti.pop_back();
+    } else throw "Nessun investimento da annullare!";
+
+}
+
+void ContoCorrente::aggiungiBonifico(Bonifico& b) {
+    ListaBonifici.push_back(b);
+}
+
+void ContoCorrente::annullaUltimoBonifico() {
+    if (!ListaBonifici.empty()) {
+        ListaBonifici.back().annulla();
+        ListaBonifici.pop_back();
+    } else throw "Nessun bonifico da annullare!";
+
+}
+
+
 

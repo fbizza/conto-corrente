@@ -1,15 +1,19 @@
 
 #ifndef CONTO_CORRENTE_BONIFICO_H
 #define CONTO_CORRENTE_BONIFICO_H
-
 #include <string>
-#include "ContoCorrente.h"
+#include "contocorrente.h"
+#include "transazione.h"
 
-class Bonifico {
+class ContoCorrente;
+
+class Bonifico : public Transazione {
 public:
-    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774", bool istantaneo = false) : contoCorrente(cc), Importo(importo), IbanDestinatario(iban), isIstantaneo(istantaneo) {};
+    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : contoCorrente(cc), Importo(importo), IbanDestinatario(iban) {};
 
-    void eseguiBonifico();
+    void esegui() override;
+
+    void annulla() override;
 
     int getImporto() const {
         return Importo;
@@ -20,11 +24,9 @@ public:
     }
 
 
-    bool isIstantaneo;
 private:
     int Importo;
     ContoCorrente &contoCorrente;
     std::string IbanDestinatario;
 };
-
 #endif //CONTO_CORRENTE_BONIFICO_H

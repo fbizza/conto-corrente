@@ -1,14 +1,19 @@
 #ifndef CONTO_CORRENTE_INVESTIMENTO_H
 #define CONTO_CORRENTE_INVESTIMENTO_H
-
-
 #include <string>
-#include "ContoCorrente.h"
+#include "contocorrente.h"
+#include "transazione.h"
 
-class Investimento {
+class ContoCorrente;
+
+class Investimento : public Transazione {
 public:
 
     Investimento(ContoCorrente &cc, int importo = 0, std::string azione = "MSFT") : contoCorrente(cc), Importo(importo), CodiceAzione(azione) {};
+
+    void esegui() override;
+
+    void annulla() override;
 
     void compraAzioni();
 
@@ -28,6 +33,4 @@ private:
     ContoCorrente &contoCorrente;
     std::string CodiceAzione;
 };
-
-
 #endif //CONTO_CORRENTE_INVESTIMENTO_H
