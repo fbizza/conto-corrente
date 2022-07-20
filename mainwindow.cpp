@@ -66,6 +66,13 @@ void MainWindow::on_pushButton_5_clicked()
 }
 
 
+void MainWindow::on_pushButton_8_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+
+
 void MainWindow::on_pushButton_6_clicked()  //PRELEVA
 {
     if (ui->radioButton->isChecked()) {
@@ -215,5 +222,31 @@ void MainWindow::on_pushButton_11_clicked() //VENDI AZIONI
     std::string Codice = ui->lineEdit_4->text().toStdString();
     Investimento i(cc, -(ui->spinBox_6->value()), Codice);
     i.esegui();
+}
+
+
+
+
+void MainWindow::on_pushButton_33_clicked()
+{
+    cc.annullaUltimoPrelievo();
+}
+
+
+void MainWindow::on_pushButton_34_clicked()
+{
+    cc.annullaUltimoVersamento();
+}
+
+
+void MainWindow::on_pushButton_35_clicked()
+{
+    cc.annullaUltimoBonifico();
+}
+
+
+void MainWindow::on_pushButton_32_clicked()
+{
+    cc.annullaUltimoInvestimento();
 }
 

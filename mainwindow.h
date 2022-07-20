@@ -46,6 +46,16 @@ private slots:
 
     void on_pushButton_11_clicked(); // VENDI AZIONI
 
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_33_clicked();
+
+    void on_pushButton_34_clicked();
+
+    void on_pushButton_35_clicked();
+
+    void on_pushButton_32_clicked();
+
 private:
     Ui::MainWindow *ui;
     ContoCorrente cc;

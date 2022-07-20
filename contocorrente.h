@@ -58,7 +58,7 @@ public:
 private:
     int Saldo;
     std::string Intestatario, IBAN;
-    std::vector<Versamento> ListaVeramenti;
+    std::vector<Versamento> ListaVersamenti;
     std::vector<Prelievo> ListaPrelievi;
     std::vector<Investimento> ListaInvestimenti;
     std::vector<Bonifico> ListaBonifici;
