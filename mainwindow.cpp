@@ -7,19 +7,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     cc = ContoCorrente(0, "IT3475769587480012", "Francesco Bizzarri");
-//    cc.versamentoBancomat(10000);
-//    cc.preleva(300);
-//    Investimento i(cc, 2);
-//    i.compraAzioni();
-//    Investimento ii(cc, 589);
-//    ii.vendiAzioni();
-//    Bonifico b(cc, 250);
-//    try {
-//        b.eseguiBonifico();
-//    }  catch (const char* messaggio) {
-//        std::cout << messaggio << std::endl;
-//    }
-
     QString SaldoAttuale = QString::fromStdString(std::to_string(cc.getSaldo()));
     ui->label_6->setText(SaldoAttuale);
     QString NomeIntestatario = QString::fromStdString(cc.getIntestatario());

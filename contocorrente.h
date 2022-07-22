@@ -55,6 +55,14 @@ public:
 
     void annullaUltimoBonifico();
 
+    void annullaVersamento(int i);
+
+    void annullaPrelievo(int i);
+
+    void annullaBonifico(int i);
+
+    void annullaInvestimento(int i);
+
 private:
     int Saldo;
     std::string Intestatario, IBAN;

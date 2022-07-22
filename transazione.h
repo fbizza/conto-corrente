@@ -1,6 +1,5 @@
 #ifndef TRANSAZIONE_H
 #define TRANSAZIONE_H
-#include<iostream>
 
 class Transazione
 {

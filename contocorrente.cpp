@@ -1,10 +1,6 @@
 #include "contocorrente.h"
-#include <ctime>
-#include <QIODevice>
-#include <QFile>
-#include <QTextStream>
 #include <iostream>
-#include <iterator>
+
 
 void ContoCorrente::diminuisciSaldo(int x) {
     if (Saldo - x >= 0) {
@@ -71,3 +67,22 @@ void ContoCorrente::annullaUltimoBonifico() {
 
 }
 
+void ContoCorrente::annullaVersamento(int i) {
+    ListaVersamenti.at(i).annulla();
+    ListaVersamenti.erase((ListaVersamenti.begin() + i));
+}
+
+void ContoCorrente::annullaPrelievo(int i) {
+    ListaPrelievi.at(i).annulla();
+    ListaPrelievi.erase((ListaPrelievi.begin() + i));
+}
+
+void ContoCorrente::annullaBonifico(int i) {
+    ListaBonifici.at(i).annulla();
+    ListaBonifici.erase((ListaBonifici.begin() + i));
+}
+
+void ContoCorrente::annullaInvestimento(int i) {
+    ListaInvestimenti.at(i).annulla();
+    ListaInvestimenti.erase((ListaInvestimenti.begin() + i));
+}

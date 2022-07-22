@@ -27,6 +27,9 @@ public:
         return CodiceAzione;
     }
 
+    Investimento& operator=(const Investimento& v) {
+        return *this;
+    }
 
 private:
     int Importo;
