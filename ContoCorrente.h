@@ -59,17 +59,25 @@ public:
 
     void annullaUltimoVersamento();
 
+    void annullaVersamento(int i);
+
     void aggiungiPrelievo(Prelievo&);
 
     void annullaUltimoPrelievo();
+
+    void annullaPrelievo(int i);
 
     void aggiungiInvestimento(Investimento&);
 
     void annullaUltimoInvestimento();
 
+    void annullaInvestimento(int i);
+
     void aggiungiBonifico(Bonifico&);
 
     void annullaUltimoBonifico();
+
+    void annullaBonifico(int i);
 
 private:
     int Saldo;

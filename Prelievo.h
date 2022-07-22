@@ -13,6 +13,10 @@ public:
 
     void annulla() override;
 
+    Prelievo& operator=(const Prelievo& v) {
+        return *this;
+    }
+
 private:
     int Importo;
     ContoCorrente &contoCorrente;

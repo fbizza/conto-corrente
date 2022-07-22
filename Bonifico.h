@@ -23,6 +23,9 @@ public:
         return IbanDestinatario;
     }
 
+    Bonifico& operator=(const Bonifico& v) {
+        return *this;
+    }
 
 private:
     int Importo;
