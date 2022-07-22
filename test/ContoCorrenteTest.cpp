@@ -76,4 +76,47 @@ TEST(ContoCorrente, Aggiungi_Rimuovi_PrelievoTest) {
     EXPECT_THROW(c.annullaUltimoPrelievo(), const char*);
 }
 
+TEST(ContoCorrente, Annulla_i_esimo_VersamentoTest) {
+    ContoCorrente c(100);
+    Versamento v1(c, 20);
+    Versamento v2(c, 30);
+    Versamento v3(c, 50);
+    v1.esegui();
+    v2.esegui();
+    v3.esegui();
+    ASSERT_TRUE(c.getListaVersamenti().size() == 3);
+    c.annullaVersamento(1);
+    EXPECT_THROW(c.annullaVersamento(3), std::out_of_range);
+    ASSERT_EQ(c.getSaldo(), 170);
+    ASSERT_TRUE(c.getListaVersamenti().size() == 2);
+}
 
+TEST(ContoCorrente, Annulla_i_esimo_BonificoTest) {
+    ContoCorrente c(5000);
+    Bonifico b1(c, 1000);
+    Bonifico b2(c, 500);
+    Bonifico b3(c, 200);
+    Bonifico b4(c, 300);
+    b1.esegui();
+    b2.esegui();
+    b3.esegui();
+    b4.esegui();
+    ASSERT_TRUE(c.getListaBonifici().size() == 4);
+    c.annullaBonifico(3);
+    EXPECT_THROW(c.annullaVersamento(4), std::out_of_range);
+    ASSERT_EQ(c.getSaldo(), 3300);
+    ASSERT_TRUE(c.getListaBonifici().size() == 3);
+}
+
+TEST(ContoCorrente, Annulla_i_esimo_InvestimentoTest) {
+    ContoCorrente c(10000);
+    Investimento i1(c, 2000);
+    Investimento i2(c, -3000);
+    i1.esegui();
+    i2.esegui();
+    ASSERT_TRUE(c.getListaInvestimenti().size() == 2);
+    c.annullaInvestimento(0);
+    EXPECT_THROW(c.annullaVersamento(3), std::out_of_range);
+    ASSERT_EQ(c.getSaldo(), 13000);
+    ASSERT_TRUE(c.getListaInvestimenti().size() == 1);
+}
