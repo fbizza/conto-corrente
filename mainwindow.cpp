@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <stdexcept>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -67,8 +68,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
             Prelievo p(cc, 20);
             p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 20€");
-            }  catch (const char* messaggio) {
-                std::cout << messaggio << std::endl;
+            }  catch (std::logic_error& e) {
+                std::cout << e.what() << std::endl;
                 ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
         }
     }
@@ -77,8 +78,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
             Prelievo p(cc, 50);
             p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 50€");
-            }  catch (const char* messaggio) {
-                std::cout << messaggio << std::endl;
+            }  catch (std::logic_error& e) {
+                std::cout << e.what() << std::endl;
                 ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
         }
     }
@@ -87,8 +88,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
             Prelievo p(cc, 75);
             p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 75€");
-            }  catch (const char* messaggio) {
-                std::cout << messaggio << std::endl;
+            }  catch (std::logic_error& e) {
+                std::cout << e.what() << std::endl;
                 ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
         }
     }
@@ -97,8 +98,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
             Prelievo p(cc, 100);
             p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 100€");
-            }  catch (const char* messaggio) {
-                std::cout << messaggio << std::endl;
+            }  catch (std::logic_error& e) {
+                std::cout << e.what() << std::endl;
                 ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
         }
     }
@@ -107,8 +108,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
             Prelievo p(cc, 250);
             p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 250€");
-            }  catch (const char* messaggio) {
-                std::cout << messaggio << std::endl;
+            }  catch (std::logic_error& e) {
+                std::cout << e.what() << std::endl;
                 ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
         }
     }
@@ -117,8 +118,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
             Prelievo p(cc, 500);
             p.esegui();
             ui->label_11->setText("SONO STATI CORRETTAMENTE PRELEVATI 500€");
-            }  catch (const char* messaggio) {
-                std::cout << messaggio << std::endl;
+            }  catch (std::logic_error& e) {
+                std::cout << e.what() << std::endl;
                 ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
         }
     }
@@ -128,8 +129,8 @@ void MainWindow::on_pushButton_6_clicked()  //PRELEVA
             p.esegui();
             std::string s = "SONO STATI CORRETTAMENTE PRELEVATI " + std::to_string(ui->spinBox->value()) + "€";
             ui->label_11->setText(QString::fromStdString(s));
-        } catch (const char* messaggio) {
-            std::cout << messaggio << std::endl;
+        } catch (std::logic_error& e) {
+            std::cout << e.what() << std::endl;
             ui->label_11->setText("NESSUNA OPERAZIONE EFFETTUATA");
         }
     }
@@ -185,8 +186,8 @@ void MainWindow::on_pushButton_9_clicked() //ESEGUI BONIFICO
     try {
         Bonifico b(cc, ui->spinBox_3->value(), iban);
         b.esegui();
-    }  catch (const char* messaggio) {
-        std::cout << messaggio << std::endl;
+    }  catch (std::logic_error& e) {
+        std::cout << e.what() << std::endl;
     }
 }
 
@@ -198,8 +199,8 @@ void MainWindow::on_pushButton_10_clicked()  //COMPRA AZIONI
     try {
         Investimento i(cc, ui->spinBox_4->value(), Codice);
         i.esegui();
-    }  catch (const char* messaggio) {
-        std::cout << messaggio << std::endl;
+    }  catch (std::logic_error& e) {
+        std::cout << e.what() << std::endl;
     }
 }
 
@@ -218,8 +219,8 @@ void MainWindow::on_pushButton_33_clicked()
 {
     try {
         cc.annullaUltimoPrelievo();
-    }  catch (const char* messaggio) {
-        std::cout << messaggio << std::endl;
+    }  catch (std::logic_error& e) {
+        std::cout << e.what() << std::endl;
     }
 
 }
@@ -229,8 +230,8 @@ void MainWindow::on_pushButton_34_clicked()
 {
     try {
         cc.annullaUltimoVersamento();
-    }  catch (const char* messaggio) {
-        std::cout << messaggio << std::endl;
+    }  catch (std::logic_error& e) {
+        std::cout << e.what() << std::endl;
     }
 
 }
@@ -240,8 +241,8 @@ void MainWindow::on_pushButton_35_clicked()
 {
     try {
         cc.annullaUltimoBonifico();
-    }  catch (const char* messaggio) {
-        std::cout << messaggio << std::endl;
+    }  catch (std::logic_error& e) {
+        std::cout << e.what() << std::endl;
     }
 
 }
@@ -251,8 +252,8 @@ void MainWindow::on_pushButton_32_clicked()
 {
     try {
         cc.annullaUltimoInvestimento();
-    }  catch (const char* messaggio) {
-        std::cout << messaggio << std::endl;
+    }  catch (std::logic_error& e) {
+        std::cout << e.what() << std::endl;
     }
 }
 
