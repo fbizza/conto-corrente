@@ -7,7 +7,7 @@ class ContoCorrente;
 
 class Prelievo : public Transazione {
 public:
-    Prelievo(ContoCorrente &cc, int importo = 0) : contoCorrente(cc), Importo(importo) {};
+    Prelievo(ContoCorrente &cc, int importo = 0) : Transazione(importo), contoCorrente(cc) {};
 
     void esegui() override;
 
@@ -18,7 +18,6 @@ public:
     }
 
 private:
-    int Importo;
     ContoCorrente &contoCorrente;
 };
 

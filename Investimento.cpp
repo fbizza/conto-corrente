@@ -18,7 +18,7 @@ void Investimento::annulla() {
 //        std::string dt = ctime(&now);
 //        QString DataEOra = QString::fromStdString(dt);
 //        QString Azione = QString::fromStdString(CodiceAzione);
-//        QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+//        QFile file("../ListaMovimenti.txt");
 //        if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
 //            QTextStream stream(&file);
 //            stream << "\n" << DataEOra << "È stato annullato l'acquisto di " << Importo << "€ in azioni " << Azione;
@@ -32,7 +32,7 @@ void Investimento::annulla() {
 //        std::string dt = ctime(&now);
 //        QString DataEOra = QString::fromStdString(dt);
 //        QString Azione = QString::fromStdString(CodiceAzione);
-//        QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+//        QFile file("../ListaMovimenti.txt");
 //        if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
 //            QTextStream stream(&file);
 //            stream << "\n" << DataEOra << "È stata annullata la vendita di azioni " << Azione << " per un valore di " << -Importo << "€";
@@ -50,7 +50,7 @@ void Investimento::compraAzioni() {
 //    std::string dt = ctime(&now);
 //    QString DataEOra = QString::fromStdString(dt);
 //    QString Azione = QString::fromStdString(CodiceAzione);
-//    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+//    QFile file("../ListaMovimenti.txt");
 //    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
 //        QTextStream stream(&file);
 //        stream << "\n" << DataEOra << "Sono stati investiti " << Importo << "€ in azioni " << Azione;
@@ -66,7 +66,7 @@ void Investimento::vendiAzioni() {
 //    std::string dt = ctime(&now);
 //    QString DataEOra = QString::fromStdString(dt);
 //    QString Azione = QString::fromStdString(CodiceAzione);
-//    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+//    QFile file("../ListaMovimenti.txt");
 //    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
 //        QTextStream stream(&file);
 //        stream << "\n" << DataEOra << "Sono state vendute azioni " << Azione << " per un valore di " << -Importo << "€";

@@ -10,7 +10,7 @@ void Bonifico::esegui() {
 //    std::string dt = ctime(&now);
 //    QString DataEOra = QString::fromStdString(dt);
 //    QString IBAN = QString::fromStdString(IbanDestinatario);
-//    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+//    QFile file("../ListaMovimenti.txt");
 //    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
 //        QTextStream stream(&file);
 //        stream << "\n" << DataEOra << "È stato inviato un bonifico da " << Importo << "€ a " << IBAN;
@@ -27,7 +27,7 @@ void Bonifico::annulla() {
 //    std::string dt = ctime(&now);
 //    QString DataEOra = QString::fromStdString(dt);
 //    QString IBAN = QString::fromStdString(IbanDestinatario);
-//    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+//    QFile file("../ListaMovimenti.txt");
 //    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
 //        QTextStream stream(&file);
 //        stream << "\n" << DataEOra << "È stato annullato il bonifico da " << Importo << "€ a " << IBAN;

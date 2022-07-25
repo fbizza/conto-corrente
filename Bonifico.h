@@ -9,7 +9,7 @@ class ContoCorrente;
 
 class Bonifico : public Transazione {
 public:
-    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : contoCorrente(cc), Importo(importo), IbanDestinatario(iban) {};
+    Bonifico(ContoCorrente &cc, int importo = 0, std::string iban = "IT34768497485769201774") : Transazione(importo), contoCorrente(cc), IbanDestinatario(iban) {};
 
     void esegui() override;
 
@@ -28,7 +28,6 @@ public:
     }
 
 private:
-    int Importo;
     ContoCorrente &contoCorrente;
     std::string IbanDestinatario;
 };
