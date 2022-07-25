@@ -1,3 +1,4 @@
+
 #include "versamento.h"
 #include <QIODevice>
 #include <QFile>
@@ -5,13 +6,10 @@
 
 void Versamento::esegui() {
     contoCorrente.aumentaSaldo(Importo);
-    time_t now = time(0);
-    std::string dt = ctime(&now);
-    QString DataEOra = QString::fromStdString(dt);
-    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+    QFile file("../ListaMovimenti.txt");
           if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
               QTextStream stream(&file);
-              stream << "\n" << DataEOra << "Sono stati versati " << Importo << "€";
+              stream << "\n" << Data_E_Ora << "Sono stati versati " << Importo << "€";
               stream << "\nNuovo saldo: " << contoCorrente.getSaldo() << "€\n";
               file.close();
           }
@@ -20,13 +18,10 @@ void Versamento::esegui() {
 
 void Versamento::annulla() {
     contoCorrente.diminuisciSaldo(Importo);
-    time_t now = time(0);
-    std::string dt = ctime(&now);
-    QString DataEOra = QString::fromStdString(dt);
-    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+    QFile file("../ListaMovimenti.txt");
           if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
               QTextStream stream(&file);
-              stream << "\n" << DataEOra << "È stato annullato il versamento di " << Importo << "€";
+              stream << "\n" << Data_E_Ora << "È stato annullato il versamento di " << Importo << "€";
               stream << "\nNuovo saldo: " << contoCorrente.getSaldo() << "€\n";
               file.close();
           }

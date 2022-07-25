@@ -1,12 +1,13 @@
 #include "contocorrente.h"
 #include <iostream>
+#include <stdexcept>
 
 
 void ContoCorrente::diminuisciSaldo(int x) {
     if (Saldo - x >= 0) {
         Saldo -= x;
     }
-    else throw "Saldo contabile non sufficiente!";
+    else throw std::logic_error("Saldo contabile non sufficiente!");
 }
 
 void ContoCorrente::aumentaSaldo(int x) {
@@ -23,7 +24,7 @@ void ContoCorrente::annullaUltimoVersamento() {
         ListaVersamenti.back().annulla();
         ListaVersamenti.pop_back();
         std::cout << "LISTA VERSAMENTI: " << ListaVersamenti.size() << std::endl;
-    } else throw "Nessun versamento da annullare!";
+    } else throw std::logic_error("Nessun versamento da annullare!");
 }
 
 void ContoCorrente::aggiungiPrelievo(Prelievo& p) {
@@ -36,7 +37,7 @@ void ContoCorrente::annullaUltimoPrelievo() {
         ListaPrelievi.back().annulla();
         ListaPrelievi.pop_back();
         std::cout << "LISTA PRELIEVI: " << ListaPrelievi.size() << std::endl;
-    } else throw "Nessun prelievo da annullare!";
+    } else throw std::logic_error("Nessun prelievo da annullare!");
 }
 
 void ContoCorrente::aggiungiInvestimento(Investimento& i) {
@@ -49,7 +50,7 @@ void ContoCorrente::annullaUltimoInvestimento() {
         ListaInvestimenti.back().annulla();
         ListaInvestimenti.pop_back();
         std::cout << "LISTA INVESTIMENTI: " << ListaInvestimenti.size() << std::endl;
-    } else throw "Nessun investimento da annullare!";
+    } else throw std::logic_error("Nessun investimento da annullare!");
 
 }
 
@@ -63,7 +64,7 @@ void ContoCorrente::annullaUltimoBonifico() {
         ListaBonifici.back().annulla();
         ListaBonifici.pop_back();
         std::cout << "LISTA BONIFICI: " << ListaBonifici.size() << std::endl;
-    } else throw "Nessun bonifico da annullare!";
+    } else throw std::logic_error("Nessun bonifico da annullare!");
 
 }
 

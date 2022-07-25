@@ -6,14 +6,11 @@
 
 void Bonifico::esegui() {
     contoCorrente.diminuisciSaldo(Importo);;
-    time_t now = time(0);
-    std::string dt = ctime(&now);
-    QString DataEOra = QString::fromStdString(dt);
     QString IBAN = QString::fromStdString(IbanDestinatario);
-    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+    QFile file("../ListaMovimenti.txt");
           if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
               QTextStream stream(&file);
-              stream << "\n" << DataEOra << "È stato inviato un bonifico da " << Importo << "€ a " << IBAN;
+              stream << "\n" << Data_E_Ora << "È stato inviato un bonifico da " << Importo << "€ a " << IBAN;
               stream << "\nNuovo saldo: " << contoCorrente.getSaldo() << "€\n";
               file.close();
           }
@@ -23,14 +20,11 @@ void Bonifico::esegui() {
 
 void Bonifico::annulla() {
     contoCorrente.aumentaSaldo(Importo);;
-    time_t now = time(0);
-    std::string dt = ctime(&now);
-    QString DataEOra = QString::fromStdString(dt);
     QString IBAN = QString::fromStdString(IbanDestinatario);
-    QFile file("C:/Users/bizza/Desktop/Laboratorio di Programmazione/conto-corrente-gui/ListaMovimenti.txt");
+    QFile file("../ListaMovimenti.txt");
           if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
               QTextStream stream(&file);
-              stream << "\n" << DataEOra << "È stato annullato il bonifico da " << Importo << "€ a " << IBAN;
+              stream << "\n" << Data_E_Ora << "È stato annullato il bonifico da " << Importo << "€ a " << IBAN;
               stream << "\nNuovo saldo: " << contoCorrente.getSaldo() << "€\n";
               file.close();
           }

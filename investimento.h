@@ -9,7 +9,7 @@ class ContoCorrente;
 class Investimento : public Transazione {
 public:
 
-    Investimento(ContoCorrente &cc, int importo = 0, std::string azione = "MSFT") : contoCorrente(cc), Importo(importo), CodiceAzione(azione) {};
+    Investimento(ContoCorrente &cc, int importo = 0, std::string azione = "MSFT") : Transazione(importo), contoCorrente(cc), CodiceAzione(azione) {};
 
     void esegui() override;
 
@@ -32,7 +32,6 @@ public:
     }
 
 private:
-    int Importo;
     ContoCorrente &contoCorrente;
     std::string CodiceAzione;
 };
