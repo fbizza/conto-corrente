@@ -17,7 +17,7 @@ TEST(Investimento, CompraAzioniTest) {
     i1.esegui();
     ASSERT_EQ(c.getListaInvestimenti().size(), before + 1);
     ASSERT_EQ(700, c.getSaldo());
-    EXPECT_THROW(i2.esegui(), const char*);
+    EXPECT_THROW(i2.esegui(), std::logic_error);
 }
 
 TEST(Investimento, VendiAzioniTest) {

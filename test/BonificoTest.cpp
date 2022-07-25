@@ -15,7 +15,7 @@ TEST(Bonifico, EseguiBonificoTest) {
     ASSERT_TRUE(c.getListaBonifici().empty());
     b1.esegui();
     ASSERT_EQ(900, c.getSaldo());
-    EXPECT_THROW(b2.esegui(), const char*);
+    EXPECT_THROW(b2.esegui(), std::logic_error);
     ASSERT_EQ(c.getListaBonifici().size(), 1);
 }
 

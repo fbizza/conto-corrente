@@ -15,7 +15,7 @@ TEST(ContoCorrente, DiminuisciSaldoTest) {
     ContoCorrente c(2000);
     c.diminuisciSaldo(500);
     ASSERT_EQ(1500, c.getSaldo());
-    EXPECT_THROW(c.diminuisciSaldo(30000), const char*);
+    EXPECT_THROW(c.diminuisciSaldo(30000), std::logic_error);
 }
 
 TEST(ContoCorrente, AumentaSaldoTest) {
@@ -34,7 +34,7 @@ TEST(ContoCorrente, Aggiungi_Rimuovi_InvestimentoTest) {
     c.annullaUltimoInvestimento();
     ASSERT_TRUE(c.getListaInvestimenti().empty());
     ASSERT_EQ(c.getSaldo(), 10000);
-    EXPECT_THROW(c.annullaUltimoInvestimento(), const char*);
+    EXPECT_THROW(c.annullaUltimoInvestimento(), std::logic_error);
 }
 
 TEST(ContoCorrente, Aggiungi_Rimuovi_BonificoTest) {
@@ -47,7 +47,7 @@ TEST(ContoCorrente, Aggiungi_Rimuovi_BonificoTest) {
     c.annullaUltimoBonifico();
     ASSERT_TRUE(c.getListaBonifici().empty());
     ASSERT_EQ(c.getSaldo(), 10);
-    EXPECT_THROW(c.annullaUltimoBonifico(), const char*);
+    EXPECT_THROW(c.annullaUltimoBonifico(), std::logic_error);
 }
 
 TEST(ContoCorrente, Aggiungi_Rimuovi_VersamentoTest) {
@@ -60,7 +60,7 @@ TEST(ContoCorrente, Aggiungi_Rimuovi_VersamentoTest) {
     c.annullaUltimoVersamento();
     ASSERT_TRUE(c.getListaBonifici().empty());
     ASSERT_EQ(c.getSaldo(), 500);
-    EXPECT_THROW(c.annullaUltimoVersamento(), const char*);
+    EXPECT_THROW(c.annullaUltimoVersamento(), std::logic_error);
 }
 
 TEST(ContoCorrente, Aggiungi_Rimuovi_PrelievoTest) {
@@ -73,7 +73,7 @@ TEST(ContoCorrente, Aggiungi_Rimuovi_PrelievoTest) {
     c.annullaUltimoPrelievo();
     ASSERT_TRUE(c.getListaPrelievi().empty());
     ASSERT_EQ(c.getSaldo(), 90);
-    EXPECT_THROW(c.annullaUltimoPrelievo(), const char*);
+    EXPECT_THROW(c.annullaUltimoPrelievo(), std::logic_error);
 }
 
 TEST(ContoCorrente, Annulla_i_esimo_VersamentoTest) {
